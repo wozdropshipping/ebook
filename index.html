@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo salir de Informconf sin pagar un guaraní</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#c9b037',
+                            light: '#d4b43a',
+                            dark: '#b8941f',
+                            muted: 'rgba(201, 176, 55, 0.1)'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .noise-bg {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+        
+        .book-shadow {
+            box-shadow: 
+                0 50px 100px -20px rgba(0, 0, 0, 0.7),
+                0 30px 60px -30px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
+        
+        .gold-glow {
+            box-shadow: 0 0 40px rgba(201, 176, 55, 0.15);
+        }
+        
+        .transition-theme {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .text-balance {
+            text-wrap: balance;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::selection {
+            background: rgba(201, 176, 55, 0.3);
+            color: inherit;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased transition-theme noise-bg bg-neutral-50 text-neutral-800 dark:bg-[#050505] dark:text-neutral-300">
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full border border-gold/30 bg-white dark:bg-[#111] shadow-lg flex items-center justify-center hover:scale-110 transition-transform" aria-label="Cambiar modo">
+        <svg class="w-5 h-5 hidden dark:block text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg>
+        <svg class="w-5 h-5 block dark:hidden text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 bg-white/80 dark:bg-[#050505]/90 backdrop-blur-xl border-b border-neutral-200 dark:border-white/5 transition-theme">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="#historia" class="text-sm text-neutral-600 dark:text-neutral-400 hover:text-gold transition-colors duration-300 tracking-wide text-xs font-medium">Historia</a>
+                    <a href="#contenido" class="text-sm text-neutral-600 dark:text-neutral-400 hover:text-gold transition-colors duration-300 tracking-wide text-xs font-medium">Contenido</a>
+                    <a href="#precios" class="text-sm text-neutral-600 dark:text-neutral-400 hover:text-gold transition-colors duration-300 tracking-wide text-xs font-medium">Inversión</a>
+                </div>
+                <a href="#precios" class="hidden md:inline-flex px-6 py-2.5 border border-gold/50 text-gold text-sm font-medium tracking-wide hover:bg-gold hover:text-black transition-all duration-300 rounded-full">
+                    Obtener libro
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 bg-neutral-100 dark:bg-[#050505] transition-theme">
+        <div class="absolute inset-0 bg-gradient-to-b from-white via-neutral-100 to-neutral-100 dark:from-[#0a0a0a] dark:via-[#050505] dark:to-[#050505] transition-theme"></div>
+        <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-gold/[0.03] to-transparent"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 grid lg:grid-cols-2 gap-16 items-center">
+            <!-- Content -->
+            <div class="space-y-8 max-w-2xl">
+                <div class="space-y-4">
+                    <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold text-neutral-900 dark:text-neutral-100 leading-[0.95] text-balance">
+                        Cómo salir de <span class="text-gold italic font-bold">Informconf</span><br>
+                        sin pagar un guaraní
+                    </h1>
+                    <div class="inline-flex items-center px-3 py-1.5 border border-gold/20 bg-gold/5 text-gold text-[10px] font-medium tracking-widest uppercase rounded-full">
+                        Basado en hechos reales
+                    </div>
+                </div>
+                
+                <p class="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-lg font-light border-l-2 border-gold/30 pl-6">
+                    El manual que hubiera necesitado a los 19 años cuando tomé cinco préstamos simultáneos y descubrí, demasiado tarde, que la deuda no espera. Documentación completa del proceso legal que me permitió limpiar mi nombre en el sistema financiero paraguayo sin pagar intereses abusivos ni caer en evasión.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <button id="schedule-btn" class="btn-primary px-10 py-4 bg-gold text-black font-semibold tracking-wide text-center hover:bg-gold-light transition-transform hover:scale-105 rounded-full text-lg">
+                        Programa una reunión
+                    </button>
+                    <div class="text-sm text-neutral-500 mt-2 sm:mt-0 sm:ml-4 self-center">Costo de 200.000 Gs</div>
+                    <a href="#historia" class="px-8 py-3 border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 text-center hover:border-gold/50 hover:text-gold transition-all duration-300 tracking-wide text-base rounded-full">
+                        Leer la historia
+                    </a>
+                </div>
+            </div>
+
+            <!-- Book Image -->
+            <div class="relative flex justify-center lg:justify-end">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gold/10 blur-[100px] rounded-full"></div>
+                    <img src="img/ebookdigital.jpeg" alt="Libro Cómo salir de Informconf" class="relative z-10 w-full max-w-md book-shadow rounded-sm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="historia" class="py-32 bg-white dark:bg-[#0a0a0a] transition-theme relative">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-4">
+                    <div class="sticky top-32">
+                        <div class="text-gold text-xs tracking-widest uppercase mb-4">El origen</div>
+                        <h2 class="font-serif text-4xl font-medium text-neutral-800 dark:text-neutral-200 leading-tight">Los 5 préstamos simultáneos</h2>
+                        <div class="w-12 h-px bg-gold mt-6"></div>
+                        <div class="mt-6 text-xs text-neutral-500 tracking-widest">
+                            ASUNCIÓN, 2015
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-8 space-y-6 text-neutral-600 dark:text-neutral-400 leading-relaxed font-light text-lg">
+                    <p class="text-xl text-neutral-800 dark:text-neutral-300 font-normal">
+                        Trabajaba en un grupo empresarial del microcentro de Asunción. Veía operaciones de dinero, negocios cerrándose, gente moviendo capitales. Pensé que entendía cómo funcionaba el dinero.
+                    </p>
+                    
+                    <p>
+                        Quería emprender, y en mi ingenuidad decidí que no necesitaba un préstamo, sino cinco, tomados simultáneamente de cinco entidades financieras distintas
+                    </p>
+
+                    <div class="my-8 py-6 border-y border-gold/20">
+                        <p class="font-serif text-2xl text-gold text-center italic">
+                            Más de 20 millones de guaraníes en mis manos a los 19 años
+                        </p>
+                        <p class="text-center text-sm text-neutral-500 mt-2">Sin experiencia financiera, sin respaldo, solo con la arrogancia de la juventud</p>
+                    </div>
+                    
+                    <p>
+                        No gasté en proyectos viables. No invertí con cabeza. Procrastinaba y dejaba pasar el tiempo porque pensaba que sería millonario rápido, que el éxito llegaría antes que los vencimientos, y que pagaría las deudas al contado sin esfuerzo. Grave error.
+                    </p>
+
+                    <p>
+                        Las cuotas se acumularon. Los intereses crecieron. Y entonces entré al sistema más temido de Paraguay: <span class="text-gold font-medium">Equifax - Informconf</span>.
+                    </p>
+
+                    <div class="bg-neutral-100 dark:bg-[#111] p-8 my-10 border-l-2 border-gold/30">
+                        <p class="text-neutral-800 dark:text-neutral-200 text-lg leading-relaxed">
+                            Lo que siguió fueron años de tormenta. Los intereses convirtieron los 20 millones en más de 40. Ya no conseguía trabajo en el sector formal, mi nombre estaba marcado. Los problemas familiares crecían bajo la presión económica. Las relaciones personales se resquebrajaban, porque nadie quiere vincularse con alguien cuyo futuro financiero parece condenado.
+                        </p>
+                    </div>
+
+                    <p>
+                        Pasé media década ahí. Cinco años aprendiendo el sistema desde adentro, no por elección sino por necesidad. Descubrí que existen mecanismos legales, legítimos, para situaciones como la mía. No son secretos, pero tampoco están escritos para que cualquiera los entienda sin ayuda.
+                    </p>
+
+                    <p>
+                        Apliqué esos métodos. Paso a paso. Sin evasión, sin trucos, sin pedir dinero prestado para pagar deudas. Solo conocimiento profundo del marco legal paraguayo aplicado con disciplina y paciencia.
+                    </p>
+
+                    <div class="my-10 py-8 border-t border-b border-gold/20">
+                        <p class="text-gold text-xl font-serif italic text-center">
+                            Hoy mi historial está limpio. He vuelto al sistema financiero. Los bancos me ofrecen líneas de crédito de hasta 200 millones de guaraníes.
+                        </p>
+                        <p class="text-center text-sm text-neutral-500 mt-4">Todo sin capital prestado, sin evasión, sin atajos ilegales. Solo el camino legal que este libro documenta.</p>
+                    </div>
+
+                    <p class="text-neutral-800 dark:text-neutral-300">
+                        Este libro es el mapa que me faltó a los 19 años. La documentación exacta de cómo atravesar la tormenta sin hundirse, y cómo salir del otro lado con el nombre limpio.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Grid -->
+    <section id="contenido" class="py-32 bg-neutral-100 dark:bg-[#050505] transition-theme">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <div class="text-gold text-xs tracking-widest uppercase mb-4">Estructura</div>
+                <h2 class="font-serif text-5xl font-medium text-neutral-800 dark:text-neutral-200">Ocho capítulos prácticos</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white dark:bg-[#0a0a0a] p-8 border border-neutral-200 dark:border-white/5 group hover:border-gold/30 transition-all duration-300 rounded-lg">
+                    <div class="text-gold/30 text-4xl font-serif font-light mb-4 group-hover:text-gold/60 transition-colors">01</div>
+                    <h3 class="text-neutral-800 dark:text-neutral-200 text-base font-medium mb-2">La caída</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed">Cómo entré al sistema, los errores que cometí y por qué la mayoría repite los mismos pasos.</p>
+                </div>
+
+                <div class="bg-white dark:bg-[#0a0a0a] p-8 border border-neutral-200 dark:border-white/5 group hover:border-gold/30 transition-all duration-300 rounded-lg">
+                    <div class="text-gold/30 text-4xl font-serif font-light mb-4 group-hover:text-gold/60 transition-colors">02</div>
+                    <h3 class="text-neutral-800 dark:text-neutral-200 text-base font-medium mb-2">Anatomía del Informconf</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed">Cómo funciona realmente Equifax, qué datos almacenan y cómo interpretar tu reporte.</p>
+                </div>
+
+                <div class="bg-white dark:bg-[#0a0a0a] p-8 border border-neutral-200 dark:border-white/5 group hover:border-gold/30 transition-all duration-300 rounded-lg">
+                    <div class="text-gold/30 text-4xl font-serif font-light mb-4 group-hover:text-gold/60 transition-colors">03</div>
+                    <h3 class="text-neutral-800 dark:text-neutral-200 text-base font-medium mb-2">El marco legal</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed">Leyes aplicables, derechos del consumidor y obligaciones de entidades financieras.</p>
+                </div>
+
+                <div class="bg-white dark:bg-[#0a0a0a] p-8 border border-neutral-200 dark:border-white/5 group hover:border-gold/30 transition-all duration-300 rounded-lg">
+                    <div class="text-gold/30 text-4xl font-serif font-light mb-4 group-hover:text-gold/60 transition-colors">04</div>
+                    <h3 class="text-neutral-800 dark:text-neutral-200 text-base font-medium mb-2">Negociación estratégica</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed">Técnicas de diálogo con entidades, quitas reales y convenios sostenibles.</p>
+                </div>
+
+                <div class="bg-white dark:bg-[#0a0a0a] p-8 border border-neutral-200 dark:border-white/5 group hover:border-gold/30 transition-all duration-300 rounded-lg">
+                    <div class="text-gold/30 text-4xl font-serif font-light mb-4 group-hover:text-gold/60 transition-colors">05</div>
+                    <h3 class="text-neutral-800 dark:text-neutral-200 text-base font-medium mb-2">Prescripción</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed">Plazos legales, interrupciones y procedimiento ante deudas prescritas.</p>
+                </div>
+
+                <div class="bg-white dark:bg-[#0a0a0a] p-8 border border-neutral-200 dark:border-white/5 group hover:border-gold/30 transition-all duration-300 rounded-lg">
+                    <div class="text-gold/30 text-4xl font-serif font-light mb-4 group-hover:text-gold/60 transition-colors">06</div>
+                    <h3 class="text-neutral-800 dark:text-neutral-200 text-base font-medium mb-2">Limpieza del historial</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed">Proceso paso a paso para solicitar actualización de reporte post-solución.</p>
+                </div>
+
+                <div class="bg-white dark:bg-[#0a0a0a] p-8 border border-neutral-200 dark:border-white/5 group hover:border-gold/30 transition-all duration-300 rounded-lg">
+                    <div class="text-gold/30 text-4xl font-serif font-light mb-4 group-hover:text-gold/60 transition-colors">07</div>
+                    <h3 class="text-neutral-800 dark:text-neutral-200 text-base font-medium mb-2">Reconstrucción</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed">Cómo volver al sistema financiero, obtener créditos y mantener historial limpio.</p>
+                </div>
+
+                <div class="bg-white dark:bg-[#0a0a0a] p-8 border border-neutral-200 dark:border-white/5 group hover:border-gold/30 transition-all duration-300 rounded-lg">
+                    <div class="text-gold/30 text-4xl font-serif font-light mb-4 group-hover:text-gold/60 transition-colors">08</div>
+                    <h3 class="text-neutral-800 dark:text-neutral-200 text-base font-medium mb-2">Casos documentados</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed">Tres historias reales con cifras exactas, errores y resoluciones alcanzadas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="precios" class="py-32 bg-neutral-100 dark:bg-[#050505] relative transition-theme">
+        <div class="absolute inset-0 bg-gradient-to-b from-gold/[0.02] to-transparent"></div>
+        
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20">
+                <div class="text-gold text-xs tracking-widest uppercase mb-4">Inversión</div>
+                <h2 class="font-serif text-5xl font-medium text-neutral-800 dark:text-neutral-200 mb-4">Elige tu formato</h2>
+                <p class="text-neutral-500 font-light">Mismo contenido, diferentes presentaciones</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-[#0a0a0a] border border-neutral-200 dark:border-white/10 p-10 relative group hover:border-gold/30 transition-all duration-500 rounded-2xl">
+                    <div class="absolute top-0 right-0 bg-neutral-200 dark:bg-white/5 text-neutral-600 dark:text-neutral-400 px-4 py-2 text-[10px] tracking-widest uppercase rounded-bl-2xl rounded-tr-2xl">
+                        Inmediato
+                    </div>
+                    
+                    <div class="mb-8 opacity-80 group-hover:opacity-100 transition-opacity">
+                        <img src="img/ebookdigital.jpeg" alt="Versión digital" class="w-48 mx-auto shadow-2xl rounded">
+                    </div>
+                    
+                    <h3 class="text-neutral-800 dark:text-neutral-200 text-xl font-medium mb-2 text-center">Edición digital</h3>
+                    <p class="text-neutral-500 text-sm mb-8 font-light text-center">PDF para cualquier dispositivo. Acceso inmediato y permanente.</p>
+                    
+                    <div class="flex items-baseline justify-center mb-8">
+                        <span class="font-serif text-6xl font-semibold text-neutral-800 dark:text-neutral-200">12.000</span>
+                        <span class="text-neutral-400 ml-2 text-sm">Gs</span>
+                    </div>
+                    
+                          <ul class="space-y-3 mb-10 text-sm text-neutral-500 dark:text-neutral-400 font-light">
+                        <li class="flex items-center justify-center">
+                            <span class="w-1.5 h-1.5 bg-gold rounded-full mr-3"></span>
+                            Descarga instantánea
+                        </li>
+                        <li class="flex items-center justify-center">
+                            <span class="w-1.5 h-1.5 bg-gold rounded-full mr-3"></span>
+                            Acceso de por vida
+                        </li>
+                        <li class="flex items-center justify-center">
+                            <span class="w-1.5 h-1.5 bg-gold rounded-full mr-3"></span>
+                            Actualizaciones incluidas
+                        </li>
+                    </ul>
+                    
+                    <a href="https://buy.stripe.com/8x2dRb1w31XH9V4fZN9fW0m" target="_blank" rel="noopener noreferrer" class="w-full inline-block text-center py-4 border border-gold/50 text-gold text-base tracking-widest hover:bg-gold hover:text-black transition-transform hover:scale-105 duration-300 rounded-full font-medium">
+                        Comprar digital
+                    </a>
+                </div>
+
+                <div class="bg-white dark:bg-[#0a0a0a] border border-gold/30 p-10 relative group gold-glow rounded-2xl">
+                    <div class="absolute top-0 right-0 bg-gold text-black px-4 py-2 text-[10px] tracking-widest uppercase font-medium rounded-bl-2xl rounded-tr-2xl">
+                        Recomendado
+                    </div>
+                    
+                    <div class="mb-8 opacity-90 group-hover:opacity-100 transition-opacity">
+                        <img src="img/ebookfisico.jpeg" alt="Versión física" class="w-48 mx-auto shadow-2xl rounded">
+                    </div>
+                    
+                    <h3 class="text-neutral-800 dark:text-neutral-200 text-xl font-medium mb-2 text-center">Edición física</h3>
+                    <p class="text-neutral-500 text-sm mb-8 font-light text-center">Libro impreso premium. Incluye digital gratis.</p>
+                    
+                    <div class="flex items-baseline justify-center mb-8">
+                        <span class="font-serif text-6xl font-semibold text-gold">50.000</span>
+                        <span class="text-neutral-400 ml-2 text-sm">Gs</span>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-10 text-sm text-neutral-500 dark:text-neutral-400 font-light">
+                        <li class="flex items-center justify-center">
+                            <span class="w-1.5 h-1.5 bg-gold rounded-full mr-3"></span>
+                            Tapa dura, papel premium
+                        </li>
+                        <li class="flex items-center justify-center">
+                            <span class="w-1.5 h-1.5 bg-gold rounded-full mr-3"></span>
+                            Envío nacional incluido
+                        </li>
+                        <li class="flex items-center justify-center">
+                            <span class="w-1.5 h-1.5 bg-gold rounded-full mr-3"></span>
+                            Digital incluido sin costo
+                        </li>
+                        <li class="flex items-center justify-center">
+                            <span class="w-1.5 h-1.5 bg-gold rounded-full mr-3"></span>
+                            Asesoría inicial para salir de Informconf
+                        </li>
+                        <li class="flex items-center justify-center">
+                            <span class="w-1.5 h-1.5 bg-gold rounded-full mr-3"></span>
+                            Atenderemos tu caso y veremos el estado en que se encuentra
+                        </li>
+                    </ul>
+                    
+                    <a href="https://buy.stripe.com/4gM28tgqXcCl5EO4h59fW0o" target="_blank" rel="noopener noreferrer" class="w-full inline-block text-center py-4 bg-gold text-black text-base tracking-widest font-medium hover:bg-gold-light transition-transform hover:scale-105 duration-300 rounded-full">
+                        Comprar físico
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <p class="text-neutral-400 text-xs tracking-wide">
+                    Pagos procesados de forma segura. Envío físico únicamente dentro de Paraguay.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 bg-white dark:bg-[#0a0a0a] transition-theme">
+        <div class="max-w-3xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="text-gold text-xs tracking-widest uppercase mb-4">Preguntas</div>
+                <h2 class="font-serif text-4xl font-medium text-neutral-800 dark:text-neutral-200">Aclaraciones necesarias</h2>
+            </div>
+            
+            <div class="space-y-8">
+                <div class="border-b border-neutral-200 dark:border-white/5 pb-8">
+                    <h3 class="text-neutral-800 dark:text-neutral-200 font-medium mb-3 text-lg">¿Este libro elimina deudas automáticamente?</h3>
+                    <p class="text-neutral-500 font-light leading-relaxed">No. Es una guía de procedimientos legales. Cada caso requiere análisis individual y gestión personal. El libro proporciona el conocimiento; la acción corresponde al lector.</p>
+                </div>
+                
+                <div class="border-b border-neutral-200 dark:border-white/5 pb-8">
+                    <h3 class="text-neutral-800 dark:text-neutral-200 font-medium mb-3 text-lg">¿Necesito conocimientos legales previos?</h3>
+                    <p class="text-neutral-500 font-light leading-relaxed">No. El contenido está redactado para personas sin formación jurídica, explicando conceptos complejos de forma accesible.</p>
+                </div>
+                
+                <div class="border-b border-neutral-200 dark:border-white/5 pb-8">
+                    <h3 class="text-neutral-800 dark:text-neutral-200 font-medium mb-3 text-lg">¿Cuánto tiempo toma el proceso?</h3>
+                    <p class="text-neutral-500 font-light leading-relaxed">Varía según la complejidad. Algunos trámites toman semanas; otros, meses. El libro detalla los plazos legales específicos para cada vía.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-32 bg-neutral-100 dark:bg-[#050505] border-t border-neutral-200 dark:border-white/5 transition-theme">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-serif text-5xl md:text-6xl font-medium text-neutral-800 dark:text-neutral-200 mb-6 leading-tight">
+                De la tormenta al sistema<br>
+                <span class="text-gold italic">sin pagar un guaraní</span>
+            </h2>
+            <p class="text-neutral-500 text-lg mb-12 font-light max-w-2xl mx-auto">
+                Cinco préstamos, cinco años de oscuridad, y la salida legal que nadie me explicó. 
+                Este libro es el mapa que me faltó.
+            </p>
+            <a href="#precios" class="inline-block px-12 py-5 bg-gold text-black font-medium tracking-widest hover:bg-gold-light transition-all duration-300 rounded-full">
+                Obtener el libro
+            </a>
+            <p class="mt-8 text-neutral-400 text-xs tracking-wide">
+                Inversión única. Sin suscripciones ni costos ocultos.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-100 dark:bg-[#050505] border-t border-neutral-200 dark:border-white/5 py-12 transition-theme">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <span class="font-serif text-xl text-neutral-700 dark:text-neutral-300">Cómo salir de Informconf</span>
+                <p class="text-neutral-400 text-xs mt-2 tracking-wide">© 2024. Todos los derechos reservados.</p>
+            </div>
+            <div class="flex space-x-8 text-neutral-400 text-xs tracking-widest uppercase">
+                <a href="#" class="hover:text-gold transition-colors">Términos</a>
+                <a href="#" class="hover:text-gold transition-colors">Privacidad</a>
+                <a href="#" class="hover:text-gold transition-colors">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal: Programar reunión -->
+    <div id="schedule-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 px-4">
+        <div class="bg-white dark:bg-[#0b0b0b] text-neutral-900 dark:text-neutral-100 rounded-lg max-w-xl w-full p-6 relative">
+            <button id="close-schedule" aria-label="Cerrar" class="absolute top-3 right-3 text-neutral-500 hover:text-neutral-800">X</button>
+            <h3 class="text-lg font-medium mb-3">Programar reunión</h3>
+            <p class="text-sm mb-6">Con la consulta veremos tu caso, el tiempo, el tipo de demanda, cómo ayudarte y cómo guiarte para que comiences a salir nuevamente de Informconf.</p>
+            <p class="text-sm mb-4 font-medium">Escríbeme para agendar una reunión</p>
+            <a href="https://wa.me/595983994268?text=Hola%20quiero%20agendar%20una%20reunion%20contigo%20para%20analizar%20mi%20caso%20de%20Informconf." target="_blank" rel="noopener noreferrer" class="w-full inline-block text-center py-3 bg-green-600 text-white rounded-md">Contactar por WhatsApp</a>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality - Default to light mode
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Set default to light mode
+        if (!localStorage.theme) {
+            localStorage.theme = 'light';
+            html.classList.remove('dark');
+        } else if (localStorage.theme === 'dark') {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                html.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+
+        // Modal schedule logic
+        const scheduleBtn = document.getElementById('schedule-btn');
+        const scheduleModal = document.getElementById('schedule-modal');
+        const closeSchedule = document.getElementById('close-schedule');
+
+        function openSchedule() {
+            scheduleModal.classList.remove('hidden');
+            scheduleModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            scheduleModal.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeScheduleModal() {
+            scheduleModal.classList.add('hidden');
+            scheduleModal.classList.remove('flex');
+            document.body.style.overflow = '';
+            scheduleModal.setAttribute('aria-hidden', 'true');
+        }
+
+        scheduleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openSchedule();
+        });
+
+        closeSchedule.addEventListener('click', () => closeScheduleModal());
+
+        scheduleModal.addEventListener('click', (e) => {
+            if (e.target === scheduleModal) closeScheduleModal();
+        });
+    </script>
+</body>
+</html>
